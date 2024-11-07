@@ -5,6 +5,7 @@
 #include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 template <typename T>
 void bubblesort_for_for_index(T *arr, size_t n) {
@@ -118,23 +119,27 @@ bool is_sorted(T* arr, size_t n) {
 }
 
 template <typename T>
-bool test_sort_method(T *temp, size_t n, void (*sort_method)(int*, size_t)) {
+string test_sort_method(T *temp, size_t n, void (*sort_method)(int*, size_t)) {
+    auto start = high_resolution_clock::now();
+
     int * arr = new int[n];
     copy(temp, temp + n, arr);
 	sort_method(arr, n);
-    if (is_sorted(arr, n)) {
-		return true;
-	}
-    else {
-		return false;
-	}
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    std::string durationStr = std::to_string(duration);
+   
+    string output = "Elapsed time : " + durationStr + " milliseconds";
+    return output;
+
 }
 
 int main() {
     srand(time(0));
 
     // make array
-    int const arrLen = 10;
+    int const arrLen = 1000;
     int arr[arrLen];
     for (int i = 0; i < arrLen; i++) {
 		arr[i] = rand() % 100;
