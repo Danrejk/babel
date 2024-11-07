@@ -1,5 +1,8 @@
 ﻿#include <iostream>
 #include <string>
+#include <cstdlib> 
+#include <ctime>
+#include <chrono>
 
 using namespace std;
 
@@ -128,8 +131,23 @@ bool test_sort_method(T *temp, size_t n, void (*sort_method)(int*, size_t)) {
 }
 
 int main() {
-    int arr[] = { 5, 3, 8, 4, 2 };
+    srand(time(0));
+
+    // make array
+    int const arrLen = 10;
+    int arr[arrLen];
+    for (int i = 0; i < arrLen; i++) {
+		arr[i] = rand() % 100;
+	}
+
     size_t n = sizeof(arr) / sizeof(arr[0]);
+    
+    // list array
+    cout << "Array: ";
+    for (int i = 0; i < arrLen; i++) {
+        cout << arr[i] << ",";
+    }
+    cout << "\n";
 
     cout << "bubblesort for for index: " << test_sort_method(arr, n, bubblesort_for_for_index) << "\n";
     cout << "bubblesort while for index: " << test_sort_method(arr, n, bubblesort_while_for_index) << "\n";
@@ -137,7 +155,6 @@ int main() {
     cout << "bubblesort for for pointer: " << test_sort_method(arr, n, bubblesort_for_for_pointer) << "\n";
     cout << "bubblesort while for pointer: " << test_sort_method(arr, n, bubblesort_while_for_pointer) << "\n";
     cout << "bubblesort while shorten for pointer: " << test_sort_method(arr, n, bubblesort_while_shorten_for_pointer) << "\n";
-
 
     return 0;
 }
