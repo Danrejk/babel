@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2bce3fde-d142-4907-aa64-4210f8544922}</ProjectGuid>
-    <RootNamespace>babelek1</RootNamespace>
+    <ProjectGuid>{a14f6739-b7ed-48e3-95ad-535bf4e31030}</ProjectGuid>
+    <RootNamespace>bable</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="babelek 1.cpp" />
+    <ClCompile Include="bable.cpp" />
+    <ClCompile Include="losowanie.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
